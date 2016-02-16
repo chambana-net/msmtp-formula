@@ -1,0 +1,6 @@
+# This file is managed by Salt
+
+# System
+root: {{ root_email }}
+cron: root
+default: root
