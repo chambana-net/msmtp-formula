@@ -1,0 +1,6 @@
+{% set msmtp = salt['grains.filter_by']({
+    'Debian': {
+        'aliases': '/etc/aliases',
+        'tls_trust_file': '/etc/ssl/certs/ca-certificates.crt',
+    },
+}, merge=salt['pillar.get']('bootstrap:lookup')) %}
