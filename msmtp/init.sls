@@ -19,6 +19,7 @@ msmtp:
     - context:
         msmtp_config: {{ msmtp.config }}
         msmtp_accounts: {{ msmtp.accounts }}
+        default_account: {{ msmtp.default_account }}
 
 aliases:
   file.managed:
