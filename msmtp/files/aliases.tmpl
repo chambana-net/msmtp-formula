@@ -1,0 +1,11 @@
+{# vi: set ft=jinja: #}
+{% macro aliases_serializer(data) %}
+{% for key, values in data.items() -%}
+{{ key }}: {{ values.join(',') }}
+{% endfor %}
+{% endmacro %}
+
+# File managed by Salt at <{{ source }}>.
+# Your changes will be overwritten.
+
+{{ aliases_serializer(aliases) }}

@@ -1,10 +1,15 @@
-{% set msmtp = salt['grains.filter_by']({
-    'Debian': {
-        'aliases': '/etc/aliases',
-        'tls_trust_file': '/etc/ssl/certs/ca-certificates.crt',
-    },
-    'Arch': {
-        'aliases': '/etc/aliases',
-        'tls_trust_file': '/etc/ssl/certs/ca-certificates.crt',
-    }
-}, merge=salt['pillar.get']('bootstrap:lookup')) %}
+{# vi: set ft=jinja: #}
+
+{% import_yaml "msmtp/defaults.yaml" as defaults %}
+{% import_yaml "msmtp/osfamilymap.yaml" as osfamilymap %}
+
+{# merge OS-specific defaults #}
+{% set osfamily = salt['grains.filter_by'](osfamilymap, grain='os_family') or {} %}
+{% do defaults.update(osfamily) %}
+
+{# merge overrides #}
+{% set lookup = salt['pillar.get']('msmtp:lookup', default={}, merge=True) %}
+{% do defaults.update(lookup) %}
+
+{# merge all #}
+{% set msmtp = salt['pillar.get']('msmtp', default=defaults, merge=true) %}

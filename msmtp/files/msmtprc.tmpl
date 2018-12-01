@@ -1,0 +1,26 @@
+{# vi: set ft=jinja: #}
+{% macro msmtprc_config_serializer(data) %}
+{% for key, value in data.items() -%}
+{{ key }} {{ value }}
+{% endfor %}
+{% endmacro %}
+{% macro msmtprc_account_serializer(data) %}
+{% for section, pairs in data.items() %}
+
+account {{ section }}
+{% for key, value in pairs.items() -%}
+{{ key }} {{ value }}
+{% endfor %}
+{% endfor %}
+{% endmacro %}
+
+; File managed by Salt at <{{ source }}>.
+; Your changes will be overwritten.
+
+defaults
+{{ msmtprc_config_serializer(msmtp_config) }}
+{{ msmtprc_accounts_serializer(msmtp_accounts) }}
+
+{% if default_account -%}
+default : {{ default_account }}
+{% endif -%}

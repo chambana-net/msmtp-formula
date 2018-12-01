@@ -1,0 +1,13 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+
+Arch:
+  msmtprc: /etc/msmtprc
+  config:
+    tls_trust_file: /etc/ssl/certs/ca-certificates.crt
+    aliases: /etc/aliases
+Debian:
+  msmtprc: /etc/msmtprc
+  config:
+    tls_trust_file: /etc/ssl/certs/ca-certificates.crt
+    aliases: /etc/aliases
