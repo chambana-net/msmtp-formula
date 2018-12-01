@@ -4,7 +4,7 @@
 {{ key }} {{ value }}
 {% endfor %}
 {% endmacro %}
-{% macro msmtprc_account_serializer(data) %}
+{% macro msmtprc_accounts_serializer(data) %}
 {% for section, pairs in data.items() %}
 
 account {{ section }}
