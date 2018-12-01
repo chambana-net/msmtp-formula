@@ -5,7 +5,7 @@
 {% endfor %}
 {% endmacro %}
 {% macro msmtprc_accounts_serializer(data) %}
-{% for section, pairs in data.items() %}
+{% for section, pairs in data.items() -%}
 
 account {{ section }}
 {% for key, value in pairs.items() -%}
