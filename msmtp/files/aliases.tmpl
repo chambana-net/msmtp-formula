@@ -1,7 +1,7 @@
 {# vi: set ft=jinja: #}
 {% macro aliases_serializer(data) %}
 {% for key, values in data.items() -%}
-{{ key }}: {{ values|join(',') }}
+{{ key|string }}: {{ values|join(',')|string }}
 {% endfor %}
 {% endmacro %}
 
