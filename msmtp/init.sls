@@ -17,8 +17,8 @@ msmtp:
     - mode: 600
     - template: jinja
     - context:
-        msmtp_config: {{ msmtp.config }}
-        msmtp_accounts: {{ msmtp.accounts }}
+        msmtp_config: {{ msmtp.config | json }}
+        msmtp_accounts: {{ msmtp.accounts | json }}
         default_account: {{ msmtp.default_account }}
 
 aliases:
@@ -30,4 +30,4 @@ aliases:
     - mode: 644
     - template: jinja
     - context:
-        aliases: {{ msmtp.aliases }}
+        aliases: {{ msmtp.aliases | json }}

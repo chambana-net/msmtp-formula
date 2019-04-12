@@ -1,15 +1,15 @@
 {# vi: set ft=jinja: #}
 {% macro msmtprc_config_serializer(data) %}
 {% for key, value in data.items() -%}
-{{ key|string }} {{ value|string }}
+{{ key }} {{ value }}
 {% endfor %}
 {% endmacro %}
 {% macro msmtprc_accounts_serializer(data) %}
 {% for section, pairs in data.items() -%}
 
-account {{ section|string }}
+account {{ section }}
 {% for key, value in pairs.items() -%}
-{{ key|string }} {{ value|string }}
+{{ key }} {{ value }}
 {% endfor %}
 {% endfor %}
 {% endmacro %}
