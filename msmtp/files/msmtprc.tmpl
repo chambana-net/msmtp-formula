@@ -14,13 +14,10 @@ account {{ section }}
 {% endfor %}
 {% endmacro %}
 
-; File managed by Salt at <{{ source }}>.
-; Your changes will be overwritten.
-
 defaults
 {{ msmtprc_config_serializer(msmtp_config) }}
 {{ msmtprc_accounts_serializer(msmtp_accounts) }}
 
 {% if default_account -%}
-default : {{ default_account }}
+account default : {{ default_account }}
 {% endif -%}
