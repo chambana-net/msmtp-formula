@@ -3,6 +3,6 @@
 
 msmtp:
   config:
-    auth: on
-    tls: on
+    auth: 'on'
+    tls: 'on'
     syslog: LOG_MAIL
