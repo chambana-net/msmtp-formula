@@ -13,8 +13,8 @@ msmtp:
     - name: {{ msmtp.msmtprc }}
     - source: salt://msmtp/files/msmtprc.tmpl
     - user: root
-    - group: root
-    - mode: 600
+    - group: mail
+    - mode: 640
     - template: jinja
     - context:
         msmtp_config: {{ msmtp.config | json }}
