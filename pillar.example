@@ -12,7 +12,10 @@ msmtp:
       auto_from: on
       maildomain: example.com
   aliases:
-    root: root@example.com
-    cron: root@example.com
-    default: root@example.com
+    root:
+      - root@example.com
+    cron:
+      - root@example.com
+    default:
+      - root@example.com
   default_account: example
