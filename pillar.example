@@ -9,7 +9,7 @@ msmtp:
       port: 587
       user: foo
       password: bar
-      auto_from: on
+      auto_from: "on"
       maildomain: example.com
   aliases:
     root:
